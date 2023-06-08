@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Café</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-*****************" crossorigin="anonymous" />
+
+  <style>
+	*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+    body {
+      font-family: Arial, sans-serif;
+	  background: #ccc;
+    }
+	header{
+	  background-image: url('images/paris-2573525_1280.jpg');
+	  height: 100vh;
+	  width: 100%;
+	  top: 0px;
+	  left: 0px;
+	  position:relative;
+	}
+    .navbar {
+      position:sticky;
+	  top:0;
+	  left:0;
+      color: #fff;
+	  width: 100%;
+	  z-index:1000;
+    }
+	.navbar a{
+      color: #f80;
+    }
+	.navbar a:hover{
+      color: #fff;
+    }
+    .jumbotron {
+      background: transparent;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px;
+	  position:absolute;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  
+    }
+	header:before {
+      content: '';
+      background:rgba(0,0,0,.5);
+      position:absolute;
+	  top: 0;
+	  left:0;
+	  width: 100%;
+	  height: 100%;
+    }
+    .section {
+      padding: 50px 0;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .card {
+      margin-bottom: 30px;
+    }
+	.navbar-toggler{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	align-items:center;
+	width:50px;
+	}
+	.navbar-toggler-icon{
+	background:#fff;
+	height:2px;
+	width:100%;
+	
+	
+	}
+  </style>
+</head>
+<body>
+  <header>
+	<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="#">Mon Café</a>
+    <button class="navbar-toggler  text-dark"  type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon  bg-light m-1"></span>
+      <span class="navbar-toggler-icon  bg-light m-1"></span>
+      <span class="navbar-toggler-icon  bg-light m-1"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">À Propos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#menu">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+  
+
+  <div class="jumbotron">
+    <h1 class="display-4">Bienvenue au Café</h1>
+    <p class="lead">Découvrez notre délicieux café</p>
+    <a class="btn btn-primary btn-lg" href="#menu" role="button">Voir le Menu</a>
+  </div>
+
+  <div id="about" class="section">
+    <div class="container">
+      <h2 class="section-heading">À Propos de Nous</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/latte-macchiato-3669136_1280.jpg" alt="À Propos de Nous" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor odio a risus rutrum, non cursus felis scelerisque. Sed feugiat faucibus augue, id congue tellus tincidunt a.</p>
+          <p>Aliquam convallis sem vel libero posuere, ut efficitur ex ultricies. Nulla facilisi. Mauris quis felis tellus. Suspendisse in turpis eu turpis condimentum consequat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="menu" class="section">
+    <div class="container">
+      <h2 class="section-heading">Notre Menu</h
+
+</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/cappuccino-756490_1280.jpg" alt="Café 1" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Café 1</h5>
+              <p class="card-text">Description du café 1.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/coffee-1867429_1280.jpg" alt="Café 2" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Café 2</h5>
+              <p class="card-text">Description du café 2.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/coffee-1117933_1280.jpg" alt="Café 3" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Café 3</h5>
+              <p class="card-text">Description du café 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="contact" class="section">
+    <div class="container">
+      <h2 class="section-heading">Contactez-nous</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Nous sommes impatients de vous accueillir au café.</p>
+          <ul>
+            <li>Adresse: 123 rue du Café, Ville</li>
+            <li>Téléphone: 123-456-7890</li>
+            <li>Email: info@moncafe.com</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-dark text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Droits d'auteur</h5>
+        <p>&copy; 2023 Sekouti Abdelaziz. Tous droits réservés.</p>
+      </div>
+      <div class="col-md-3">
+        <h5>Calendrier</h5>
+        <p>Affichez ici votre calendrier d'événements.</p>
+      </div>
+      <div class="col-md-3">
+        <h5>Réseaux sociaux</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/votrepage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.twitter.com/votrecompte" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/votrecompte" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
