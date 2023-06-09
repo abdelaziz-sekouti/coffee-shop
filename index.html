@@ -26,14 +26,28 @@
 	  top: 0px;
 	  left: 0px;
 	  position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      
 	}
+    header:before {
+      content: '';
+      background:rgba(0,0,0,.5);
+      position:absolute;
+	  top: 0;
+	  left:0;
+	  width: 100%;
+	  height: 100%;
+    }
     .navbar {
-      	  position:sticky;
+      position:sticky;
 	  top:0;
 	  left:0;
-      	  color: #fff;
+      color: #fff;
 	  width: 100%;
-	  background:#1c8bdd;
+	  background: #1c8bdd;
 	  z-index:1000;
     }
 	.navbar a{
@@ -47,22 +61,13 @@
       background-size: cover;
       color: #fff;
       text-align: center;
-      padding: 100px 0;
 	  position:absolute;
 	  top: 0;
 	  width: 100%;
 	  height: 100%;
 	  
     }
-	header:before {
-      content: '';
-      background:rgba(0,0,0,.5);
-      position:absolute;
-	  top: 0;
-	  left:0;
-	  width: 100%;
-	  height: 100%;
-    }
+	
     .section {
       padding: 50px 0;
     }
@@ -73,7 +78,7 @@
     .card {
       margin-bottom: 30px;
     }
-	  #menu > div > h2 > div > div:nth-child(1) > div > div > p,
+	#menu > div > h2 > div > div:nth-child(1) > div > div > p,
 	#menu > div > h2 > div > div:nth-child(2) > div > div > p,
 	#menu > div > h2 > div > div:nth-child(3) > div > div > p{
 	  font-size: 13px;
@@ -92,10 +97,32 @@
 	
 	
 	}
+    
+    footer .scrollTop{
+    width: 40px;
+    height: 40px;
+    background-color: #fc0;
+    color: #000;
+    position:fixed;
+    top :90vh;
+    right:10px;
+    cursor:pointer;
+    border-radius:5px;
+    transition:all .4s ease-in-out;
+	display:none;
+    
+    
+    }
+    footer .scrollTop:hover{
+    background-color: #ccc;
+    color: #f00;
+    border:double 5px  #f00;
+    }
+    
   </style>
 </head>
 <body>
-  <header>
+  
 	<nav class="navbar navbar-expand-md">
     <a class="navbar-brand" href="#">Mon Café</a>
     <button class="navbar-toggler  text-dark"  type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,15 +144,15 @@
       </ul>
     </div>
   </nav>
-  </header>
   
+  <header>
 
   <div class="jumbotron">
-    <h1 class="display-4 text-center">Bienvenue au Café</h1>
+    <h1 class="display-4">Bienvenue au Café</h1>
     <p class="lead">Découvrez notre délicieux café</p>
     <a class="btn btn-primary btn-lg" href="#menu" role="button">Voir le Menu</a>
   </div>
-
+</header>
   <div id="about" class="section">
     <div class="container">
       <h2 class="section-heading">À Propos de Nous</h2>
@@ -151,8 +178,8 @@
           <div class="card">
             <img src="cappuccino-756490_1280.jpg" alt="Café 1" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Mocha</h5>
-              <p class="card-text">An enticing combination of espresso, velvety chocolate, and creamy steamed milk. Savor the delightful fusion of coffee and chocolate, creating a luscious and indulgent beverage that provides the perfect balance between bitterness and sweetness. A treat for chocolate and coffee enthusiasts alike...</p>
+              <h5 class="card-title">Espresso</h5>
+              <p class="card-text"> A strong and concentrated coffee with rich flavor and a velvety crema. It delivers a bold and intense caffeine kick, perfect for those seeking a quick and powerful pick-me-up..</p>
             </div>
           </div>
         </div>
@@ -160,8 +187,8 @@
           <div class="card">
             <img src="coffee-1867429_1280.jpg" alt="Café 2" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Espresso</h5>
-              <p class="card-text">A strong and concentrated coffee with rich flavor and a velvety crema. It delivers a bold and intense caffeine kick, perfect for those seeking a quick and powerful pick-me-up..</p>
+              <h5 class="card-title">Cappuccino</h5>
+              <p class="card-text">A harmonious blend of espresso, steamed milk, and frothy milk foam. Indulge in its smooth texture, balanced flavors, and a touch of sweetness. A classic choice for coffee lovers looking for a creamy and satisfying drink..</p>
             </div>
           </div>
         </div>
@@ -169,8 +196,8 @@
           <div class="card">
             <img src="coffee-1117933_1280.jpg" alt="Café 3" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Cappuccino</h5>
-              <p class="card-text">A harmonious blend of espresso, steamed milk, and frothy milk foam. Indulge in its smooth texture, balanced flavors, and a touch of sweetness. A classic choice for coffee lovers looking for a creamy and satisfying drink...</p>
+              <h5 class="card-title">Mocha</h5>
+              <p class="card-text">An enticing combination of espresso, velvety chocolate, and creamy steamed milk. Savor the delightful fusion of coffee and chocolate, creating a luscious and indulgent beverage that provides the perfect balance between bitterness and sweetness. A treat for chocolate and coffee enthusiasts alike..</p>
             </div>
           </div>
         </div>
@@ -230,11 +257,39 @@
       </div>
     </div>
   </div>
+  <div class="scrollTop" id="scrollToTopButton"><i class="fas fa-arrow-up"></i></div>
 </footer>
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function() {
+  var scrollButton = $("#scrollToTopButton");
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      scrollButton.show();
+      scrollButton.css({
+		  "display":"flex",
+		  "justify-content":"center",
+		  "align-items":"center"
+	  });
+	  
+    } else {
+      scrollButton.hide();
+    }
+  });
+
+  scrollButton.click(function() {
+    $("html, body").css("scroll-behavior", "smooth");
+    $("html, body").scrollTop(0);
+    $("html, body").css("scroll-behavior", "auto");
+  });
+  
+});
+
+  </script>
 </body>
 </html>
