@@ -6,8 +6,18 @@
   <title>Mon Café</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-*****************" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
+
+<!-- google maps -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> -->
+
+
+
+
+
 
   <style>
+  
 	*{
 	margin: 0;
 	padding: 0;
@@ -20,7 +30,7 @@
 	  background: #ccc;
     }
 	header{
-	  background-image: url('paris-2573525_1280.jpg');
+	  background-image: url('images/paris-2573525_1280.jpg');
 	  height: 100vh;
 	  width: 100%;
 	  top: 0px;
@@ -69,7 +79,7 @@
     }
 	
     .section {
-      padding: 50px 0;
+      padding: 50px 0 ;
     }
     .section-heading {
       text-align: center;
@@ -97,8 +107,12 @@
 	
 	
 	}
+	/* Adjust the map container height as needed */
+    #mapContainer {
+      height: 400px;
+    }
     
-    footer .scrollTop{
+    .scrollTop{
     width: 40px;
     height: 40px;
     background-color: #fc0;
@@ -110,10 +124,9 @@
     border-radius:5px;
     transition:all .4s ease-in-out;
 	display:none;
-    
-    
+	z-index:1000;
     }
-    footer .scrollTop:hover{
+    .scrollTop:hover{
     background-color: #ccc;
     color: #f00;
     border:double 5px  #f00;
@@ -141,6 +154,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
+		<li class="nav-item">
+          <a class="nav-link" href="#maps">Maps</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -158,7 +174,7 @@
       <h2 class="section-heading">À Propos de Nous</h2>
       <div class="row">
         <div class="col-md-6">
-          <img src="latte-macchiato-3669136_1280.jpg" alt="À Propos de Nous" class="img-fluid">
+          <img src="images/latte-macchiato-3669136_1280.jpg" alt="À Propos de Nous" class="img-fluid">
         </div>
         <div class="col-md-6">
           <p>Welcome to our café! We are passionate about serving exceptional coffee and creating a warm, inviting atmosphere for our customers. Our dedicated team of baristas takes pride in crafting each cup with precision and care.</p>
@@ -176,7 +192,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card">
-            <img src="cappuccino-756490_1280.jpg" alt="Café 1" class="card-img-top">
+            <img src="images/cappuccino-756490_1280.jpg" alt="Café 1" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">Espresso</h5>
               <p class="card-text"> A strong and concentrated coffee with rich flavor and a velvety crema. It delivers a bold and intense caffeine kick, perfect for those seeking a quick and powerful pick-me-up..</p>
@@ -185,7 +201,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="coffee-1867429_1280.jpg" alt="Café 2" class="card-img-top">
+            <img src="images/coffee-1867429_1280.jpg" alt="Café 2" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">Cappuccino</h5>
               <p class="card-text">A harmonious blend of espresso, steamed milk, and frothy milk foam. Indulge in its smooth texture, balanced flavors, and a touch of sweetness. A classic choice for coffee lovers looking for a creamy and satisfying drink..</p>
@@ -194,7 +210,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="coffee-1117933_1280.jpg" alt="Café 3" class="card-img-top">
+            <img src="images/coffee-1117933_1280.jpg" alt="Café 3" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">Mocha</h5>
               <p class="card-text">An enticing combination of espresso, velvety chocolate, and creamy steamed milk. Savor the delightful fusion of coffee and chocolate, creating a luscious and indulgent beverage that provides the perfect balance between bitterness and sweetness. A treat for chocolate and coffee enthusiasts alike..</p>
@@ -236,6 +252,18 @@
       </div>
     </div>
   </div>
+  <div id="maps" class="section">
+    <div class="container">
+      <h2 class="section-heading">See Our Maps</h2>
+		<div class="row">
+		  <div class="col-md-12 ">
+		
+			<div id="mapContainer"></div> 
+		  </div> 
+	   </div> 
+	</div> 
+</div> 
+	<div class="scrollTop" id="scrollToTopButton"><i class="fas fa-arrow-up"></i></div>
   <footer class="bg-dark text-white">
   <div class="container py-5">
     <div class="row">
@@ -257,13 +285,11 @@
       </div>
     </div>
   </div>
-  <div class="scrollTop" id="scrollToTopButton"><i class="fas fa-arrow-up"></i></div>
 </footer>
-
-
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
   $(document).ready(function() {
   var scrollButton = $("#scrollToTopButton");
@@ -289,6 +315,51 @@
   });
   
 });
+
+// google maps script
+/* 
+  function initMap() {
+    // Replace "YOUR_ADDRESS" with your actual address
+    var address = "YOUR_ADDRESS";
+
+    // Create a new map centered at your address
+    var map = new google.maps.Map(document.getElementById("mapContainer"), {
+      zoom: 15,
+      center: { lat: 0, lng: 0 } // Initial center, will be updated with geocode results
+    });
+
+    // Use the Geocoder to convert address to coordinates
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: address }, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        // Update map center with the geocode results
+        map.setCenter(results[0].geometry.location);
+
+        // Add a marker at the location
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        console.error("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+ */
+ 
+ 
+  var address = "DERB BOUAALAM";
+  var latitude = 31.609305;
+  var longitude = 7.965486; 
+
+  var map = L.map("mapContainer").setView([latitude, longitude], 15);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 100
+  }).addTo(map);
+
+  L.marker([latitude, longitude]).addTo(map).bindPopup(address).openPopup();
 
   </script>
 </body>
